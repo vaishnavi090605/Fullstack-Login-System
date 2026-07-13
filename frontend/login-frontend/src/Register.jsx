@@ -11,7 +11,7 @@ function Register() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/register",
+        "https://fullstack-login-system-production.up.railway.app/register",
         {
           name: name,
           email: email,
