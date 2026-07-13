@@ -1,0 +1,141 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,);
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.login-card h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.login-card p {
+  text-align: center;
+  color: gray;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background:white;
+  color : black;
+
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+.forgot-button {
+  background: transparent;
+  color: #2563eb;
+  margin-top: 12px;
+}
+
+.forgot-button:hover {
+  background: transparent;
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+/* Responsive login, register and forgot-password pages */
+
+.login-page {
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+}
+
+.login-card h1 {
+  line-height: 1.15;
+  word-break: normal;
+}
+
+@media (max-width: 480px) {
+
+  .login-page{
+    padding:20px;
+  }
+
+  .login-card{
+    width:100%;
+    max-width:380px;
+    padding:35px 25px;
+    border-radius:20px;
+  }
+
+  .login-card h1{
+    font-size:56px;
+    line-height:1.1;
+    margin-bottom:10px;
+    color:#222;
+  }
+
+  .login-card p{
+    font-size:22px;
+    margin-bottom:25px;
+  }
+
+  label{
+    font-size:18px;
+  }
+
+  .login-card input{
+    font-size:18px;
+    padding:14px;
+    background:white;
+    color:black;
+  }
+
+  .login-card button{
+    font-size:18px;
+    padding:14px;
+  }
+
+  .forgot-button,
+  .switch-button{
+    font-size:18px;
+  }
+}
