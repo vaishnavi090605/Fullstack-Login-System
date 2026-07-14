@@ -24,7 +24,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/login",
+        "https://fullstack-login-system-production.up.railway.app/login",
         {
           email: email,
           password: password,

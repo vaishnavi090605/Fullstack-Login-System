@@ -16,7 +16,7 @@ function ForgotPassword({ onBack }) {
 
     try {
       const response = await axios.put(
-        "http://localhost:8080/forgot-password",
+        "https://fullstack-login-system-production.up.railway.app/forgot-password",
         {
           email: email,
           newPassword: newPassword,

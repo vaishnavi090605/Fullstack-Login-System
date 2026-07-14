@@ -16,7 +16,7 @@ function Dashboard({
 
   const [profileImage, setProfileImage] = useState(
     savedProfileImage
-      ? `http://localhost:8080${savedProfileImage}`
+      ? `https://fullstack-login-system-production.up.railway.app/register${savedProfileImage}`
       : ""
   );
 
@@ -49,13 +49,13 @@ function Dashboard({
     formData.append("file", selectedFile);
 
     const response = await axios.post(
-      "http://localhost:8080/upload-profile-image",
+      "https://fullstack-login-system-production.up.railway.app/upload-profile-image",
       formData
     );
 
     if (response.data?.profileImage) {
       setProfileImage(
-        `http://localhost:8080${response.data.profileImage}`
+        `https://fullstack-login-system-production.up.railway.app/register${response.data.profileImage}`
       );
     }
   };
@@ -63,7 +63,7 @@ function Dashboard({
   const handleUpdate = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:8080/update-profile",
+        "https://fullstack-login-system-production.up.railway.app/update-profile",
         {
           name: name,
           email: email,
@@ -102,7 +102,7 @@ function Dashboard({
 
     try {
       const response = await axios.put(
-        "http://localhost:8080/change-password",
+        "https://fullstack-login-system-production.up.railway.app/change-password",
         {
           email: email,
           oldPassword: oldPassword,
