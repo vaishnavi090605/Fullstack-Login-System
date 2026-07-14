@@ -114,7 +114,8 @@ function Dashboard({
       const completeImageUrl =
         createImageUrl(returnedImagePath);
 
-      setProfileImage(completeImageUrl);
+      setProfileImage(`${completeImageUrl}?t=${Date.now()}`);
+
 
       localStorage.setItem(
         "profileImage",
