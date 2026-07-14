@@ -294,12 +294,19 @@ function Dashboard({
               onChange={handleFileChange}
             />
 
-            <button
-              className="primary-button"
-              onClick={uploadProfileImage}
-            >
-              Upload Profile Photo
-            </button>
+           <button
+  type="button"
+  className="primary-button"
+  onClick={async () => {
+    if (selectedFile) {
+      await uploadProfileImage();
+    }
+
+    await handleUpdateProfile();
+  }}
+>
+  Save Changes
+</button>
 
             {selectedFile && (
               <p className="selected-file-name">
