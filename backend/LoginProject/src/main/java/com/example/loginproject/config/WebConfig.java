@@ -12,7 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOriginPatterns(
                         "http://localhost:5173",
-                        "https://fullstack-login-system.vercel.app",
                         "https://*.vercel.app"
                 )
                 .allowedMethods(
@@ -23,6 +22,6 @@ public class WebConfig implements WebMvcConfigurer {
                         "OPTIONS"
                 )
                 .allowedHeaders("*")
-                .allowCredentials(true);
+                .maxAge(3600);
     }
 }

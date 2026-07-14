@@ -19,7 +19,7 @@ import com.example.loginproject.model.User;
 import com.example.loginproject.service.UserService;
 
 @RestController
-@CrossOrigin("*")
+
 public class UserController {
 
     @Autowired
