@@ -4,15 +4,14 @@
 
 .dashboard-page {
   min-height: 100vh;
-  padding: 30px;
+  width: 100%;
+  padding: 25px;
   background: linear-gradient(
     135deg,
     #e0f2fe,
     #f8fafc
   );
   color: #1e293b;
-  transition: background 0.3s ease,
-    color 0.3s ease;
 }
 
 .dashboard-header {
@@ -58,26 +57,15 @@
   padding: 11px 18px;
   font-size: 15px;
   cursor: pointer;
-  transition: transform 0.2s ease,
-    opacity 0.2s ease,
-    background 0.2s ease;
-}
-
-.theme-button:hover,
-.logout-button:hover,
-.primary-button:hover,
-.secondary-button:hover,
-.photo-save-button:hover {
-  transform: translateY(-1px);
 }
 
 .theme-button {
-  background: #1e293b;
+  background: #334155;
   color: white;
 }
 
 .logout-button {
-  background: #dc2626;
+  background: #ef4444;
   color: white;
 }
 
@@ -89,12 +77,14 @@
 
 .profile-card,
 .password-card {
+  width: 100%;
   background: white;
   border-radius: 18px;
   padding: 28px;
   margin-bottom: 25px;
   box-shadow: 0 6px 20px
     rgba(15, 23, 42, 0.1);
+  overflow: hidden;
 }
 
 .profile-card h2,
@@ -104,63 +94,75 @@
   color: #1e293b;
 }
 
-/* Complete profile-photo area */
-.profile-photo-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 10px;
+/* Complete profile photo area */
+.profile-photo-area {
+  width: 100%;
+  margin-bottom: 22px;
 }
 
-/* Image and Choose File beside each other */
+/* Small profile image beside Choose File */
 .profile-photo-section {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 12px;
-  min-width: 0;
+  overflow: hidden;
 }
 
-/* Small circular image */
-.profile-image {
-  width: 55px;
-  height: 55px;
-  min-width: 55px;
-  border-radius: 50%;
-  object-fit: cover;
+/* Force profile image to remain small */
+.profile-card .profile-photo-section .profile-image {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  display: block !important;
+  flex: 0 0 60px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  object-position: center !important;
   border: 2px solid #2563eb;
   background: #e2e8f0;
 }
 
-/* Default icon */
-.profile-placeholder {
-  width: 55px;
-  height: 55px;
-  min-width: 55px;
+/* Default profile icon */
+.profile-card
+  .profile-photo-section
+  .profile-placeholder {
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  flex: 0 0 60px !important;
   border-radius: 50%;
   background: #e2e8f0;
   border: 2px solid #2563eb;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 26px;
 }
 
-/* Choose File */
+/* Choose File input */
 .profile-file-input {
-  width: auto;
-  max-width: 280px;
-  padding: 7px;
+  width: auto !important;
+  max-width: calc(100% - 72px) !important;
+  min-width: 0;
+  padding: 6px;
   border: 1px solid #cbd5e1;
   border-radius: 7px;
   background: #f8fafc;
   color: #334155;
+  overflow: hidden;
 }
 
 .profile-file-input::file-selector-button {
-  margin-right: 10px;
-  padding: 7px 11px;
+  margin-right: 8px;
+  padding: 7px 10px;
   border: none;
   border-radius: 6px;
   background: #2563eb;
@@ -168,32 +170,24 @@
   cursor: pointer;
 }
 
-.profile-file-input::file-selector-button:hover {
-  background: #1d4ed8;
+.selected-file-name {
+  margin: 8px 0;
+  font-size: 13px;
+  color: #64748b;
+  overflow-wrap: anywhere;
 }
 
 .photo-save-button {
-  flex-shrink: 0;
+  width: 100%;
+  margin-top: 12px;
   background: #0284c7;
   color: white;
-}
-
-.photo-save-button:hover {
-  background: #0369a1;
 }
 
 .photo-save-button:disabled,
 .primary-button:disabled {
   opacity: 0.55;
   cursor: not-allowed;
-  transform: none;
-}
-
-.selected-file-name {
-  margin: 5px 0 18px;
-  font-size: 13px;
-  color: #64748b;
-  word-break: break-word;
 }
 
 .profile-details,
@@ -205,9 +199,9 @@
 
 .profile-details label,
 .password-form label {
+  margin-top: 5px;
   font-weight: 600;
   color: #334155;
-  margin-top: 5px;
 }
 
 .profile-details input,
@@ -220,17 +214,9 @@
   outline: none;
 }
 
-.profile-details input:focus,
-.password-form input:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px
-    rgba(37, 99, 235, 0.12);
-}
-
 .profile-details input:disabled {
   background: #f1f5f9;
   color: #475569;
-  cursor: not-allowed;
 }
 
 .primary-button {
@@ -240,19 +226,11 @@
   color: white;
 }
 
-.primary-button:hover {
-  background: #0369a1;
-}
-
 .secondary-button {
   width: 100%;
   margin-top: 10px;
   background: #64748b;
   color: white;
-}
-
-.secondary-button:hover {
-  background: #475569;
 }
 
 .profile-action-buttons,
@@ -285,7 +263,6 @@
 
 .stat-card h3 {
   margin: 0 0 10px;
-  color: #1e293b;
 }
 
 .stat-card p {
@@ -301,7 +278,7 @@
     #0f172a,
     #1e293b
   );
-  color: #f8fafc;
+  color: white;
 }
 
 .dark-mode .dashboard-header,
@@ -309,9 +286,7 @@
 .dark-mode .password-card,
 .dark-mode .stat-card {
   background: #1e293b;
-  color: #f8fafc;
-  box-shadow: 0 6px 20px
-    rgba(0, 0, 0, 0.25);
+  color: white;
 }
 
 .dark-mode .welcome-section h1,
@@ -320,7 +295,7 @@
 .dark-mode .stat-card h3,
 .dark-mode .profile-details label,
 .dark-mode .password-form label {
-  color: #f8fafc;
+  color: white;
 }
 
 .dark-mode .welcome-section p,
@@ -336,21 +311,17 @@
   border-color: #475569;
 }
 
-.dark-mode .profile-details input:disabled {
-  background: #475569;
-  color: #e2e8f0;
-}
-
-/* Tablet and mobile */
+/* Mobile design */
 @media (max-width: 768px) {
   .dashboard-page {
-    padding: 15px;
+    padding: 12px;
   }
 
   .dashboard-header {
+    padding: 22px 18px;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 22px;
+    align-items: stretch;
+    text-align: center;
   }
 
   .welcome-section h1 {
@@ -359,28 +330,44 @@
 
   .header-buttons {
     width: 100%;
+    flex-direction: column;
   }
 
   .theme-button,
   .logout-button {
-    flex: 1;
+    width: 100%;
   }
 
-  .profile-photo-row {
-    align-items: flex-start;
-    flex-direction: column;
+  .profile-card,
+  .password-card {
+    padding: 20px 16px;
   }
 
   .profile-photo-section {
     width: 100%;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .profile-card
+    .profile-photo-section
+    .profile-image,
+  .profile-card
+    .profile-photo-section
+    .profile-placeholder {
+    width: 55px !important;
+    height: 55px !important;
+    min-width: 55px !important;
+    min-height: 55px !important;
+    max-width: 55px !important;
+    max-height: 55px !important;
+    flex-basis: 55px !important;
   }
 
   .profile-file-input {
-    max-width: calc(100% - 70px);
-  }
-
-  .photo-save-button {
-    width: 100%;
+    width: calc(100% - 65px) !important;
+    max-width: calc(100% - 65px) !important;
+    font-size: 12px;
   }
 
   .statistics-section {
@@ -389,17 +376,32 @@
 }
 
 @media (max-width: 480px) {
-  .profile-card,
-  .password-card {
-    padding: 20px;
+  .welcome-section h1 {
+    font-size: 30px;
   }
 
-  .profile-photo-section {
-    align-items: flex-start;
+  .welcome-section p {
+    font-size: 15px;
+  }
+
+  .profile-card
+    .profile-photo-section
+    .profile-image,
+  .profile-card
+    .profile-photo-section
+    .profile-placeholder {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    min-height: 50px !important;
+    max-width: 50px !important;
+    max-height: 50px !important;
+    flex-basis: 50px !important;
   }
 
   .profile-file-input {
-    font-size: 12px;
+    width: calc(100% - 60px) !important;
+    max-width: calc(100% - 60px) !important;
   }
 
   .profile-action-buttons,
